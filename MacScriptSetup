@@ -28,7 +28,7 @@ if [ $userResponse == '1' ]; then
     echo "Download Successful, starting MacScript"
     sleep 1
     cd MacScript
-    ./MacScript.sh
+    ./MacScript
 elif [ $userResponse == '2' ]; then
     echo "Setting the download location to your desktop"
     sleep 1
@@ -38,7 +38,7 @@ elif [ $userResponse == '2' ]; then
     echo "Download Successful, starting MacScript"
     sleep 1
     cd MacScript
-    ./MacScript.sh
+    ./MacScript
 else
     echo "Incorrect command detected, closing window, try running the program again."
 fi
