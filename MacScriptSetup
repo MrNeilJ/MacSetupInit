@@ -13,7 +13,7 @@ commandInstalled=$(xcode-select -p)
 if [ $commandInstalled == 0 ]; then
     echo "You'll have to install git first, so accept the next prompt, thank you."
     sleep 1
-    git clone
+    xcode-select --install    
     read -p "Press Enter when you have installed git [ENTER]>: "
 
 fi
@@ -25,8 +25,9 @@ if [ $userResponse == '1' ]; then
     cd Desktop
     echo "Downloading the latest version of the Mac Script"
     git clone https://github.com/mrneilj/MacScript
+    echo "------------------------------------------------------------------------------"
     echo "Download Successful, starting MacScript"
-    sleep 1
+    sleep 2
     cd MacScript
     ./MacScript
 elif [ $userResponse == '2' ]; then
@@ -35,8 +36,9 @@ elif [ $userResponse == '2' ]; then
     cd Desktop
     echo "Downloading the beta version of the Mac Script"
     git clone https://github.com/mrneilj/MacScript
-    echo "Download Successful, starting MacScript"
-    sleep 1
+    echo "------------------------------------------------------------------------------"
+    echo "Download Successful, starting MacScript BETA"
+    sleep 2
     cd MacScript
     ./MacScript
 else
