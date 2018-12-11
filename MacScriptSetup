@@ -8,7 +8,7 @@ echo "2) Beta Setup Script"
 printf ">: "
 read userResponse
 
-commandInstalled = $(xcode-select -p)
+commandInstalled=$(xcode-select -p)
 
 if [ $commandInstalled == 0 ]; then
     echo "You'll have to install git first, so accept the next prompt, thank you."
