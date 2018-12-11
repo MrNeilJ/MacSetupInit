@@ -24,7 +24,8 @@ if [ $userResponse == '1' ]; then
     sleep 1
     cd Desktop
     echo "Downloading the latest version of the Mac Script"
-    git clone https://github.com/mrneilj/MacScript
+    sleep 1
+    git clone https://github.com/mrneilj/MacScript.git
     echo "------------------------------------------------------------------------------"
     echo "Download Successful, starting MacScript"
     sleep 2
@@ -35,7 +36,7 @@ elif [ $userResponse == '2' ]; then
     sleep 1
     cd Desktop
     echo "Downloading the beta version of the Mac Script"
-    git clone https://github.com/mrneilj/MacScript
+    git clone -b testing --single-branch https://github.com/mrneilj/MacScript.git
     echo "------------------------------------------------------------------------------"
     echo "Download Successful, starting MacScript BETA"
     sleep 2
