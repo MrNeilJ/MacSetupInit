@@ -1,4 +1,5 @@
 #!/bin/bash
+clear
 echo "This tool will assist with getting you the correct version of the script"
 sleep .5
 echo "Type the number associated to the version you'd like to use"
