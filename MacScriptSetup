@@ -1,5 +1,11 @@
 #!/bin/bash
 clear
+echo "Checking to make sure Command line tools are installed"
+echo "If a pop up appears, select install and proceed"
+sleep 1
+xcode-select --install
+read -p "If / Once command lines tools have been installed press enter [ENTER]"
+
 echo "This tool will assist with getting you the correct version of the script"
 sleep .5
 echo "Type the number associated to the version you'd like to use"
@@ -9,15 +15,16 @@ echo "2) Beta Setup Script"
 printf ">: "
 read userResponse
 
-commandInstalled=$(xcode-select -p)
 
-if [ $commandInstalled == 0 ]; then
-    echo "You'll have to install git first, so accept the next prompt, thank you."
-    sleep 1
-    xcode-select --install    
-    read -p "Press Enter when you have installed git [ENTER]>: "
 
-fi
+#commandInstalled=$(xcode-select -p)
+
+#if [ $commandInstalled == 0 ]; then
+#    echo "You'll have to install git first, so accept the next prompt, thank you."
+#    sleep 1
+#    xcode-select --install    
+#    read -p "Press Enter when you have installed git [ENTER]>: "
+#fi
 
 
 if [ $userResponse == '1' ]; then
