@@ -29,9 +29,9 @@ read userResponse
 
 
 if [ $userResponse == '1' ]; then
-    echo "Setting the download location to your desktop"
+    echo "Setting the download location to your shared folder"
     sleep 1
-    cd Desktop
+    cd /Users/Shared
     echo "Downloading the latest version of the Mac Script"
     sleep 1
     git clone https://github.com/mrneilj/MacScript.git
@@ -41,9 +41,9 @@ if [ $userResponse == '1' ]; then
     cd MacScript
     ./MacScript
 elif [ $userResponse == '2' ]; then
-    echo "Setting the download location to your desktop"
+    echo "Setting the download location to your shared folder"
     sleep 1
-    cd Desktop
+    cd /Users/Shared
     echo "Downloading the beta version of the Mac Script"
     git clone -b testing --single-branch https://github.com/mrneilj/MacScript.git
     echo "------------------------------------------------------------------------------"
