@@ -35,6 +35,7 @@ if [ $userResponse == '1' ]; then
     echo "Downloading the latest version of the Mac Script"
     sleep 1
     rm -rf /Users/Shared/MacScript
+    rm -rf /Users/Shared/MacScriptFolder
     sleep 1
     git clone https://github.com/mrneilj/MacScript.git
     sleep 1
@@ -52,6 +53,7 @@ elif [ $userResponse == '2' ]; then
     echo "Downloading the beta version of the Mac Script"
     sleep 1
     rm -rf /Users/Shared/MacScript
+    rm -rf /Users/Shared/MacScriptFolder
     sleep 1
     git clone -b testing --single-branch https://github.com/mrneilj/MacScript.git
     sleep 1
