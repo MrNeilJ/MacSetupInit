@@ -34,6 +34,7 @@ if [ $userResponse == '1' ]; then
     cd /Users/Shared
     echo "Downloading the latest version of the Mac Script"
     sleep 1
+    rm -rf /Users/Shared/MacScript
     git clone https://github.com/mrneilj/MacScript.git
     sleep 1
     mv -f /Users/Shared/MacScript /Users/Shared/MacScriptFolder
