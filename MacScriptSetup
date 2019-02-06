@@ -36,7 +36,7 @@ if [ $userResponse == '1' ]; then
     sleep 1
     git clone https://github.com/mrneilj/MacScript.git
     sleep 1
-    mv Users/Shared/MacScript/MacScript /Users/Shared
+    mv /Users/Shared/MacScript/MacScript /Users/Shared
     echo "------------------------------------------------------------------------------"
     echo "Download Successful, starting MacScript"
     sleep 2
@@ -48,7 +48,7 @@ elif [ $userResponse == '2' ]; then
     echo "Downloading the beta version of the Mac Script"
     git clone -b testing --single-branch https://github.com/mrneilj/MacScript.git
     sleep 1
-    mv Users/Shared/MacScript/MacScript /Users/Shared
+    mv /Users/Shared/MacScript/MacScript /Users/Shared
     echo "------------------------------------------------------------------------------"
     echo "Download Successful, starting MacScript BETA"
     sleep 2
