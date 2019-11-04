@@ -12,7 +12,6 @@ sleep .5
 echo "Type the number associated to the version you'd like to use"
 echo "------------------------------------------------------------------------------"
 echo "1) Standard Setup Script"
-echo "2) Beta Setup Script"
 printf ">: "
 read userResponse
 
@@ -44,24 +43,6 @@ if [ $userResponse == '1' ]; then
     mv -f /Users/Shared/MacScriptFolder/MacScript /Users/Shared/MacScript
     echo "------------------------------------------------------------------------------"
     echo "Download Successful, starting MacScript"
-    sleep 2
-    ./MacScript
-elif [ $userResponse == '2' ]; then
-    echo "Setting the download location to your shared folder"
-    sleep 1
-    cd /Users/Shared
-    echo "Downloading the beta version of the Mac Script"
-    sleep 1
-    rm -rf /Users/Shared/MacScript
-    rm -rf /Users/Shared/MacScriptFolder
-    sleep 1
-    git clone -b testing --single-branch https://github.com/mrneilj/MacScript.git
-    sleep 1
-    mv -f /Users/Shared/MacScript /Users/Shared/MacScriptFolder
-    sleep 1
-    mv -f /Users/Shared/MacScriptFolder/MacScript /Users/Shared/MacScript
-    echo "------------------------------------------------------------------------------"
-    echo "Download Successful, starting MacScript BETA"
     sleep 2
     ./MacScript
 else
