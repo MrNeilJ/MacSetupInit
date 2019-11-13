@@ -12,8 +12,6 @@ sleep .5
 echo "Type the number associated to the version you'd like to use"
 echo "------------------------------------------------------------------------------"
 echo "1) Standard Setup Script"
-printf ">: "
-echo ""
 echo "2) Beta Setup Script"
 printf ">: "
 read userResponse
