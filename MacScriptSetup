@@ -1,10 +1,99 @@
 #!/bin/bash
+
+# Global Variables for simplicity
+SUDOCREDCACHED=1
+compName=""
+my_name=$(basename -- "$0")
+mydir=$(dirname "$0")
+adminPW=""
+currUser="$(whoami)"
+rdpSetupConfirm=0
+
+
+function credentialCache() {
+	# Keeps the admin password in a cache temporarily (or at least attempts to)
+	echo ""
+	echo "Type in the Admin password here to cache it for further requests (still may prompt)"
+	SUDOCREDCACHED=1
+	
+	while [ $SUDOCREDCACHED != 0 ]; do
+		printf ">: "
+		read -s adminPW
+		
+		echo "$adminPW" | sudo -S -v
+		
+		sudo -nv 2> /dev/null
+		SUDOCREDCACHED=$?
+		if [ $SUDOCREDCACHED != 0 ] ; then 
+		  echo "Incorrect Password, try again"
+		  sudo -k
+		fi
+	done
+}
+
+function homebrewInstall() {
+	# Add permissions for App Setup
+	if [ $adminPW == "" ]; then
+		credentialCache
+	else
+		echo "$adminPW" | sudo -S -v
+	fi
+
+	sleep 1
+	echo ""
+	echo "A lot of text is about to appear, but that's okay!"
+	sleep 2
+
+	# Load homebrew onto computer temporarily
+	yes '' | /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+	# Make sure home brew is updated
+	brew update
+	
+	# Install DockUtil for the user setup
+	brew install dockutil
+
+	# Install cask to download applications
+	brew install cask
+
+	# Install Duti to set default applications
+	brew install duti
+
+	# Install the tap for Device Drivers
+	brew tap homebrew/cask-drivers
+
+	# Cleanup the unneeded files
+	brew cleanup
+	
+	# Allow other users to utilize Homebrew
+	chgrp -R admin /usr/local/*
+	chmod -R g+w /usr/local/*
+}
+
+function brewCheck() {
+	which -s brew
+	if [[ $? != 0 ]] ; then
+		# Install Homebrew
+		homebrewInstall
+	else
+		brew update
+	fi
+}
+
+
 clear
 echo "Checking to make sure Command line tools are installed"
 sleep .5
 echo "If a pop up appears, select install and proceed"
 sleep 1
-xcode-select --install
+
+# Keeps the admin password in a cache temporarily (or at least attempts to)
+credentialCache
+
+# Load Homebrew and utilities
+homebrewInstall
+
+#xcode-select --install
 read -p "If / Once command lines tools have been installed press enter [ENTER]"
 
 echo "This tool will assist with getting you the correct version of the script"
